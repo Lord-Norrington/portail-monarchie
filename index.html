@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portail Officiel de la Couronne — Royaume-Uni de Novarcis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070b10;
+      --royal-purple: #1a0b2e;
+      --royal-navy: #0d1527;
+      --accent-purple: #3b1559;
+      --gold-primary: #c5a059;
+      --gold-light: #f3e5ab;
+      --gold-dark: #8c6d33;
+      --paper-bg: #faf8f5;
+      --card-bg: #ffffff;
+      --text-main: #1c2430;
+      --border-gold: rgba(197, 160, 89, 0.4);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-main);
+      background: var(--paper-bg);
+      background-image: radial-gradient(rgba(197, 160, 89, 0.08) 1px, transparent 0);
+      background-size: 28px 28px;
+    }
+
+    /* EN-TÊTE ROYALE */
+    header {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--royal-purple) 60%, var(--royal-navy) 100%);
+      color: white;
+      border-bottom: 3px solid var(--gold-primary);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.6);
+    }
+
+    header::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    }
+
+    .top-header {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .brand-container { display: flex; align-items: center; gap: 20px; }
+    .monogramme-img { height: 75px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6)); }
+
+    .brand-titles { display: flex; flex-direction: column; }
+    .brand-title {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+    }
+    .brand-sub {
+      font-size: 12px;
+      color: #cbd5e1;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .coat-container {
+      background: rgba(26, 11, 46, 0.6);
+      border: 1px solid var(--border-gold);
+      border-radius: 8px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    }
+    .coat-of-arms { height: 100px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.8)); }
+
+    /* NAVIGATION */
+    nav { background: var(--royal-purple); border-top: 1px solid var(--border-gold); }
+    .nav-links { max-width: 1200px; margin: auto; display: flex; gap: 2px; flex-wrap: wrap; }
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: #e2e8f0;
+      padding: 16px 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .nav-btn:hover, .nav-btn.active {
+      color: var(--gold-light);
+      background: rgba(197, 160, 89, 0.18);
+    }
+    .nav-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold-primary);
+    }
+
+    /* BANNIÈRE D'ACCUEIL */
+    .hero {
+      background: linear-gradient(rgba(7, 11, 16, 0.88), rgba(26, 11, 46, 0.92)),
+                  radial-gradient(circle at center, var(--accent-purple) 0%, var(--bg-dark) 100%);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-gold);
+    }
+    .hero-motto {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      letter-spacing: 4px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 36px;
+      margin: 0 0 14px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    .hero p { max-width: 800px; margin: 0 auto; color: #cbd5e1; font-size: 16px; line-height: 1.6; font-style: italic; }
+
+    /* STRUCTURE PRINCIPALE */
+    .wrap { max-width: 1200px; margin: auto; padding: 30px 15px; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      overflow: hidden;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+    }
+    .panel-header {
+      padding: 20px 25px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .panel-title {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      margin: 0;
+      color: var(--royal-purple);
+      letter-spacing: 1px;
+    }
+
+    /* CARTE BLASON GRAND FORMAT (PAGE D'ACCUEIL) */
+    .blason-showcase {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 30px;
+      align-items: center;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .blason-big-img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.25));
+    }
+
+    /* CARTE PERSONNAGES / MAISON DU ROI */
+    .person-card {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 25px;
+      padding: 25px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .person-img-box { text-align: center; }
+    .person-img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 4px;
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      background: #f1f5f9;
+    }
+    .person-title { font-family: 'Cinzel', serif; font-size: 20px; color: var(--royal-purple); margin: 0 0 6px; font-weight: 700; }
+    .person-sub { font-size: 13px; color: var(--gold-dark); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+    .person-bio { font-size: 14px; line-height: 1.7; color: #334155; }
+    .symbol-row { display: flex; gap: 15px; margin-top: 15px; align-items: center; flex-wrap: wrap; }
+    .symbol-badge { 
+      height: 50px; 
+      object-fit: contain; 
+      cursor: pointer; 
+      transition: transform 0.2s;
+    }
+    .symbol-badge:hover { transform: scale(1.05); }
+
+    /* ORDRES DE CHEVALERIE */
+    .order-list-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid var(--gold-primary);
+      border-radius: 6px;
+      padding: 16px 24px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .order-list-item:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .order-thumb-icon {
+      height: 36px;
+      width: 36px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+    }
+
+    /* FENÊTRES MODALES */
+    .modal-window {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(7, 11, 16, 0.88);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 40px 20px;
+    }
+    .modal-content {
+      max-width: 950px;
+      margin: auto;
+      background: white;
+      border: 2px solid var(--gold-primary);
+      border-radius: 8px;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    }
+    .btn-close-modal {
+      background: var(--royal-purple);
+      color: var(--gold-light);
+      border: 1px solid var(--gold-primary);
+      padding: 10px 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s;
+    }
+    .btn-close-modal:hover { background: var(--accent-purple); }
+
+    /* RÉSIDENCES / CARTES CLIQUABLES */
+    .castle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; padding: 25px; }
+    .castle-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .castle-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    .castle-img { width: 100%; height: 200px; object-fit: cover; background: #e2e8f0; }
+    .castle-body { padding: 18px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .castle-title { font-family: 'Cinzel', serif; font-size: 16px; color: var(--royal-purple); margin: 0 0 4px; font-weight: 700; }
+    .btn-view-castle {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--gold-dark);
+      font-weight: 700;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.5px;
+    }
+
+    /* GAZETTE / ACTES */
+    .acte-card {
+      background: #fafbfc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 18px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .acte-tag { background: var(--gold-primary); color: white; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 3px; font-family: 'Cinzel', serif; }
+    .btn-download {
+      background: var(--royal-purple);
+      color: var(--gold-light);
+      border: 1px solid var(--gold-primary);
+      padding: 8px 16px;
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-download:hover { background: var(--accent-purple); }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-dark);
+      color: #94a3b8;
+      padding: 35px 20px;
+      font-size: 12px;
+      border-top: 3px solid var(--gold-primary);
+      margin-top: 60px;
+      text-align: center;
+    }
+    footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    @media (max-width: 850px) {
+      .blason-showcase { grid-template-columns: 1fr; text-align: center; }
+      .person-card { grid-template-columns: 1fr; }
+      .brand-title { font-size: 18px; }
+      .coat-of-arms { height: 75px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="top-header">
+    <div class="brand-container">
+      <img src="monogramme-royal.jpg" alt="Monogramme Royal" class="monogramme-img" onerror="this.style.display='none'">
+      <div class="brand-titles">
+        <div class="brand-title">La Couronne de Novarcis</div>
+        <div class="brand-sub">Portail Officiel de la Maison Royale</div>
+      </div>
+    </div>
+    <div class="coat-container">
+      <img src="blason-royal.jpg" alt="Armoiries Royales" class="coat-of-arms">
+    </div>
+  </div>
+
+  <nav>
+    <div class="nav-links">
+      <button class="nav-btn active" onclick="switchTab('tab-accueil', this)">La Couronne</button>
+      <button class="nav-btn" onclick="switchTab('tab-maison', this)">Maison Royale & Cabinet</button>
+      <button class="nav-btn" onclick="switchTab('tab-histoire', this)">Histoire & Dynastie</button>
+      <button class="nav-btn" onclick="switchTab('tab-ordres', this)">Ordres de Chevalerie</button>
+      <button class="nav-btn" onclick="switchTab('tab-residences', this)">Résidences d'État</button>
+      <button class="nav-btn" onclick="switchTab('tab-gazette', this)">Gazette & Actes Royaux</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-motto">« Fortitudo et Hereditas »</div>
+    <h1>Royaume-Uni de Novarcis</h1>
+    <p>« La Souveraineté appartient à la Couronne, qui l'exerce dans le cadre défini par la Constitution, garante de l'unité nationale et de la continuité du Royaume. »</p>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <!-- TAB 1 : ACCUEIL / LA COURONNE -->
+  <div id="tab-accueil" class="tab-content active">
+    <div class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Les Armoiries Royales & Titulature du Souverain</h2>
+      </div>
+      <div style="padding: 25px;">
+        
+        <div class="blason-showcase">
+          <div>
+            <img src="blason-royal.jpg" alt="Grand Blason Royal de Novarcis" class="blason-big-img">
+          </div>
+          <div style="line-height: 1.8; color: #334155;">
+            <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">Grand Blason du Royaume de Novarcis</h3>
+            <p><strong>Blasonnement :</strong> <i>« Écartelé : aux 1 et 4 d'azur à trois fleurs de lys d'or (de France) ; aux 2 et 3 d'or à l'aigle éployée de sable, becquée et membrée de gules (de Rovère). L'écu timbré du casque royal, entouré des colliers des grands ordres et soutenu par deux anges armés tenant piques et boucliers. Le tout sommé du manteau pourpre royal doublé d'hermine et surmonté de la couronne royale de Novarcis. »</i></p>
+
+            <p>Le Grand Blason incarne l'alliance sacrée entre la terre historique de Rovère et l'héritage d'Ancien Régime apporté par la branche de Bourbon. Le manteau pourpre et la devise dynastique <i>« Fortitudo et Hereditas »</i> (Force et Héritage) rappellent le devoir de protection du Souverain envers le peuple novarcien.</p>
+          </div>
+        </div>
+
+        <!-- ENCADRÉ TITULATURE COMPLÈTE DU ROI -->
+        <div style="margin-top:25px; padding:22px; background:#faf8f5; border:1px solid var(--border-gold); border-radius:6px; box-shadow:inset 0 0 10px rgba(0,0,0,0.02);">
+          <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0; font-size:18px;">Titulature Officielle de Sa Majesté</h3>
+          <p style="font-family:'Cinzel',serif; font-size:15px; color:var(--gold-dark); font-weight:700; line-height:1.7; margin:0;">
+            « Sa Majesté James I<sup>er</sup>, Par la grâce de Dieu, Roi de Novarcis, Roi de Brundberg, Roi d'Autriche, Roi de Hongrie, Duc de Rovère, Prince Royal de France, Grand Commandeur des ordres du Saint-Esprit, de Saint-Michel, de la Couronne de Novarcis, du Mérite de Novarcis et de Saint-Léandre, protecteur des Lys. »
+          </p>
+        </div>
+
+        <div style="margin-top:30px; line-height: 1.8; color: #334155;">
+          <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple);">Le Rôle de la Monarchie Constitutionnelle</h3>
+          <p>Le Royaume de Novarcis est une monarchie héréditaire, constitutionnelle et parlementaire de droit divin. Garant de l'unité nationale et de la Constitution promulguée le 12 mars 1962, le Roi exerce un rôle d'arbitrage impartial au-dessus des querelles politiques éphémères.</p>
+
+          <div style="padding:20px; background:#faf8f5; border-left:4px solid var(--gold-primary); border-radius:4px; margin-top:20px;">
+            <strong style="font-family:'Cinzel',serif; color:var(--royal-purple);">Atouts & Prérogatives Majeures de la Couronne :</strong>
+            <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
+              <li><strong>Chef des Armées & Garde Royale :</strong> Commande les forces armées du Royaume en coordination avec le gouvernement.</li>
+              <li><strong>Sanction & Veto Royal :</strong> Sanctionne les lois du Parlement et dispose d'un droit de veto absolu sur les textes d'exception.</li>
+              <li><strong>Initiative des Référendums :</strong> Consultations directes du peuple novarcien sur les grandes orientations du Royaume.</li>
+              <li><strong>Présidence de la Chambre des Communes :</strong> Préside de manière honorifique l'assemblée élective pour garantir la dignité des débats.</li>
+              <li><strong>Pouvoir d'Ordonnance :</strong> Promulgue des ordonnances royales de sa propre initiative dans ses domaines de compétence.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2 : LA MAISON ROYALE & LE CABINET -->
+  <div id="tab-maison" class="tab-content">
+    <div class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Membres de la Famille Royale & Haute Administration</h2>
+      </div>
+      <div style="padding: 25px;">
+
+        <!-- SA MAJESTÉ LE ROI -->
+        <div class="person-card">
+          <div class="person-img-box">
+            <img src="portrait-roi.jpg" alt="Portrait de S.M. James Ier" class="person-img">
+          </div>
+          <div>
+            <h3 class="person-title">Sa Majesté le Roi James I<sup>er</sup></h3>
+            <div class="person-sub">13<sup>e</sup> Roi de Novarcis · 48<sup>e</sup> Duc de Rovère · Prince Royal de France</div>
+            <div class="person-bio">
+              Né en 1989, Sa Majesté le Roi James I<sup>er</sup> a accédé au trône le 14 mars 2021. Treizième Roi de Novarcis et quarante-huitième Duc de Rovère, il est le premier souverain à porter un prénom anglophone, signe d'une modernité assumée. Il incarne la continuité de la Maison de Bourbon-Rovère-Norrington et la souveraineté du Royaume.
+            </div>
+            <div class="symbol-row">
+              <span style="font-size:12px; font-weight:700; color:var(--gold-dark); font-family:'Cinzel',serif;">Signature Royale :</span>
+              <img src="signature-roi.jpg" alt="Signature Royale" class="symbol-badge" onclick="openModal('modal-img-signature')" title="Cliquer pour agrandir" onerror="this.style.display='none'">
+            </div>
+          </div>
+        </div>
+
+        <!-- LE PRINCE HÉRITIER -->
+        <div class="person-card">
+          <div class="person-img-box">
+            <img src="portrait-prince.jpg" alt="Portrait de S.A.R. Prince Charles" class="person-img">
+          </div>
+          <div>
+            <h3 class="person-title">Son Altesse Royale le Prince Charles</h3>
+            <div class="person-sub">Prince d'Argelone · Héritier du Trône</div>
+            <div class="person-bio">
+              Né le 15 mai 2012 (âgé de 14 ans), le Prince Charles porte le titre d'héritier du trône. Formé aux obligations de la Couronne et aux institutions de la monarchie, il accompagne progressivement le Souverain lors des grandes cérémonies d'État.
+            </div>
+            <div class="symbol-row">
+              <span style="font-size:12px; font-weight:700; color:var(--gold-dark); font-family:'Cinzel',serif;">Armoiries d'Héritier :</span>
+              <img src="armoiries-prince.jpg" alt="Armoiries du Prince" class="symbol-badge" onclick="openModal('modal-img-armoiries')" title="Cliquer pour agrandir" onerror="this.style.display='none'">
+            </div>
+          </div>
+        </div>
+
+        <!-- SECRÉTAIRE GÉNÉRAL DU CABINET ROYAL -->
+        <div class="person-card">
+          <div class="person-img-box">
+            <img src="portrait-cabinet.jpg" alt="Portrait de Monseigneur Alaric de Mireval" class="person-img">
+          </div>
+          <div>
+            <h3 class="person-title">Monseigneur Alaric de Mirval</h3>
+            <div class="person-sub">Duc de Lysange · Amiral de la Flotte · Secrétaire Général du Cabinet Royal</div>
+            <div class="person-bio">
+              À la tête du Cabinet Royal et de la Haute Administration du Palais, le Duc de Lysange orchestre les services de la Couronne, prépare les décrets et ordonnances et assure la suppléance administrative du Souverain en cas d'absence courte.
+            </div>
+            <div class="symbol-row">
+              <span style="font-size:12px; font-weight:700; color:var(--gold-dark); font-family:'Cinzel',serif;">Sceau du Cabinet :</span>
+              <img src="logo-cabinet.jpg" alt="Sceau du Cabinet" class="symbol-badge" onclick="openModal('modal-img-sceau')" title="Cliquer pour agrandir" onerror="this.style.display='none'">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3 : HISTOIRE & DYNASTIE -->
+  <div id="tab-histoire" class="tab-content">
+    <div class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Douze Siècles d'Histoire Dynastique (800 — Nos Jours)</h2>
+      </div>
+      <div style="padding: 25px; line-height: 1.8; color:#334155;">
+        
+        <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">1. Le Duché de Rovère & Les Trois Provinces (800 — 1653)</h3>
+        <p>En l'an 800, l'empereur Charlemagne confie le territoire central à Aldric I<sup>er</sup> de Rovère. Pendant plus de huit siècles, 36 ducs bâtisseurs façonnent la région. Le territoire se structure autour de trois entités distinctes : le Duché de Rovère au centre, le Duché d'Auron à l'ouest (terres celtiques et maritimes), et le Duché de Lysange au nord (marche frontière aux racines norroises et berceau de la famille Norrington).</p>
+
+        <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple);">2. L'Unification & La Naissance du Royaume (1653)</h3>
+        <p>Le 19 octobre 1653, Antoine VI de Rovère convoque les assemblées des trois duchés et proclame l'unification. 36<sup>e</sup> Duc de Rovère, il devient le 1<sup>er</sup> Roi de Novarcis. C'est sous son fils Charles V (1670-1709) que le château médiéval est sublimé en édifice Renaissance pour devenir le grand Palais de Downton.</p>
+
+        <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple);">3. L'Alliance Bourbonienne, la Régence et la Constitution de 1962</h3>
+        <p>En 1930, l'alliance entre la Maison de Rovère et la Maison de Bourbon s'officialise par le mariage d'Alexandre de Bourbon et de la Princesse Éléonora de Rovère (fille unique du Roi Théophile II). De cette union naît Louise-Auguste de Bourbon-Rovère. À la mort du Roi Théophile II en 1957, la Princesse Éléonora étant décédée avant son père, la couronne reviendra de droit à son jeune petit fils né en 1957 après le décès du roi Théophile II. C'est le fils de Louise-Auguste.</p>
+        
+        <p>Son Altesse Royale Louise-Auguste de Bourbon-Rovère assure alors une régence majeure de 17 ans (1957–1974) sous le titre de <i>Duchesse Régente de Novarcis</i> et promulgue la loi fondamentale du Royaume : la <strong>Constitution du 12 mars 1962</strong>. En 1956, son mariage avec Lord Eugène Norrington, comte de Dunvarn, donne naissance à la maison régnante actuelle : la <strong>Maison de Bourbon-Rovère-Norrington</strong>. Leur fils Théophile étant le roi de droit.</p>
+
+        <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple);">4. L'Époque Contemporaine</h3>
+        <p>Théodore III Norrington monte sur le trône en 1957 et assure pleinement ses fonctions en 1974. Il gouverne pendant près d'un demi-siècle. Son fils, Sa Majesté James I<sup>er</sup>, devient le 13<sup>e</sup> Roi de Novarcis et 48<sup>e</sup> Duc de Rovère le 14 mars 2021. En avril 2026, le Palais du Parlement a fait son retour solennel à Rovère-sur-Lys après 82 ans de restauration, marquant le renouveau d'un Royaume fidèle à ses racines.</p>
+
+        <p>Suite à la guerre qu'engage le Royaume d'Autriche et de Hongrie contre le Royaume-Uni de Novarcis en avril 2026, celui-ci est contraint de donner sa reddition sans condition au bout d'une semaine. Ces territoires sont ainsi inclus au royaume. En juin de la même année, le Royaume de Brundberg signe un accord avec Novarcis et rejoint également le pays. Suite à cela, l'Empire Britannique est proclamé de nouveau par le Roi James.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4 : ORDRES DE CHEVALERIE -->
+  <div id="tab-ordres" class="tab-content">
+    <div class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Ordres de Chevalerie & Honneurs (Cliquez sur un ordre pour voir la fiche détaillée)</h2>
+      </div>
+      <div style="padding: 25px;">
+
+        <div class="order-list-item" onclick="openModal('modal-esprit')">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="icon-saint-esprit.png" alt="" class="order-thumb-icon" onerror="this.src='médaille-saint-esprit.jpg'">
+            <div>
+              <h3 style="font-family:'Cinzel',serif; margin:0; color:var(--royal-purple);">Ordre du Saint-Esprit</h3>
+              <span style="font-size:13px; color:#64748b;">Premier ordre de préséance · Rang unique d'exception</span>
+            </div>
+          </div>
+          <span style="color:var(--gold-primary); font-weight:bold; font-size:20px;">➔</span>
+        </div>
+
+        <div class="order-list-item" onclick="openModal('modal-michel')">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="icon-saint-michel.png" alt="" class="order-thumb-icon" onerror="this.src='médaille-saint-michel.jpg'">
+            <div>
+              <h3 style="font-family:'Cinzel',serif; margin:0; color:var(--royal-purple);">Ordre de Saint-Michel</h3>
+              <span style="font-size:13px; color:#64748b;">Deuxième ordre de préséance · Voie d'anoblissement (Baron)</span>
+            </div>
+          </div>
+          <span style="color:var(--gold-primary); font-weight:bold; font-size:20px;">➔</span>
+        </div>
+
+        <div class="order-list-item" onclick="openModal('modal-couronne')">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="icon-couronne.png" alt="" class="order-thumb-icon" onerror="this.src='médaille-couronne.jpg'">
+            <div>
+              <h3 style="font-family:'Cinzel',serif; margin:0; color:var(--royal-purple);">Ordre de la Couronne de Novarcis</h3>
+              <span style="font-size:13px; color:#64748b;">Troisième ordre de préséance · Confère le titre de Sir</span>
+            </div>
+          </div>
+          <span style="color:var(--gold-primary); font-weight:bold; font-size:20px;">➔</span>
+        </div>
+
+        <div class="order-list-item" onclick="openModal('modal-merite')">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="icon-merite.png" alt="" class="order-thumb-icon" onerror="this.src='médaille-merite.jpg'">
+            <div>
+              <h3 style="font-family:'Cinzel',serif; margin:0; color:var(--royal-purple);">Ordre du Mérite de Novarcis</h3>
+              <span style="font-size:13px; color:#64748b;">Quatrième ordre de préséance · Excellence civile & administrative</span>
+            </div>
+          </div>
+          <span style="color:var(--gold-primary); font-weight:bold; font-size:20px;">➔</span>
+        </div>
+
+        <div class="order-list-item" onclick="openModal('modal-leandre')">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="icon-saint-leandre.png" alt="" class="order-thumb-icon" onerror="this.src='médaille-saint-leandre.jpg'">
+            <div>
+              <h3 style="font-family:'Cinzel',serif; margin:0; color:var(--royal-purple);">Ordre de Saint-Léandre</h3>
+              <span style="font-size:13px; color:#64748b;">Cinquième ordre de préséance · Vertus morales, foi & œuvres caritatives</span>
+            </div>
+          </div>
+          <span style="color:var(--gold-primary); font-weight:bold; font-size:20px;">➔</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 5 : RÉSIDENCES ROYALES & DOMAINES -->
+  <div id="tab-residences" class="tab-content">
+    <div class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Résidences d'État & Domaines de la Couronne (Cliquez pour agrandir & consulter le dossier)</h2>
+      </div>
+      <div class="castle-grid">
+        
+        <!-- 1. ALDRICOURT -->
+        <div class="castle-card" onclick="openModal('modal-chateau-aldricourt')">
+          <img src="chateau-aldricourt.jpg" alt="Palais d'Aldricourt" class="castle-img" onerror="this.alt='Photo à venir — Palais d\'Aldricourt'">
+          <div class="castle-body">
+            <div>
+              <h3 class="castle-title">Palais Royal d'Aldricourt</h3>
+              <p style="font-size:12px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:6px;">📍 Rovère</p>
+              <p style="font-size:13px; color:#64748b; margin:0;">Résidence de travail quotidienne du Souverain et siège de la Haute Administration.</p>
+            </div>
+            <span class="btn-view-castle">Consulter le dossier ➔</span>
+          </div>
+        </div>
+
+        <!-- 2. DOWNTON -->
+        <div class="castle-card" onclick="openModal('modal-chateau-downton')">
+          <img src="chateau-downton.jpg" alt="Château de Downton" class="castle-img" onerror="this.alt='Photo à venir — Château de Downton'">
+          <div class="castle-body">
+            <div>
+              <h3 class="castle-title">Château de Downton</h3>
+              <p style="font-size:12px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:6px;">📍 Rovère</p>
+              <p style="font-size:13px; color:#64748b; margin:0;">Résidence officielle d'État dédiée aux sommets diplomatiques et grandes cérémonies.</p>
+            </div>
+            <span class="btn-view-castle">Consulter le dossier ➔</span>
+          </div>
+        </div>
+
+        <!-- 3. VAL-DE-ROVÈRE -->
+        <div class="castle-card" onclick="openModal('modal-chateau-val-rovere')">
+          <img src="chateau-val-rovere.jpg" alt="Château du Val-de-Rovère" class="castle-img" onerror="this.alt='Photo à venir — Château du Val-de-Rovère'">
+          <div class="castle-body">
+            <div>
+              <h3 class="castle-title">Château du Val-de-Rovère</h3>
+              <p style="font-size:12px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:6px;">📍 Campagne entre Rovère et Far Vegas</p>
+              <p style="font-size:13px; color:#64748b; margin:0;">Merveille d'architecture classique du XVII<sup>e</sup> siècle aux grands jardins à la française.</p>
+            </div>
+            <span class="btn-view-castle">Consulter le dossier ➔</span>
+          </div>
+        </div>
+
+        <!-- 4. VILLEFORT -->
+        <div class="castle-card" onclick="openModal('modal-manoir-villefort')">
+          <img src="manoir-villefort.jpg" alt="Manoir de Villefort" class="castle-img" onerror="this.alt='Photo à venir — Manoir de Villefort'">
+          <div class="castle-body">
+            <div>
+              <h3 class="castle-title">Manoir de Villefort</h3>
+              <p style="font-size:12px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:6px;">📍 Villefort</p>
+              <p style="font-size:13px; color:#64748b; margin:0;">Demeure de villégiature privée de la Famille Royale pour les réceptions intimistes.</p>
+            </div>
+            <span class="btn-view-castle">Consulter le dossier ➔</span>
+          </div>
+        </div>
+
+        <!-- 5. BUCKINGHAM -->
+        <div class="castle-card" onclick="openModal('modal-palais-buckingham')">
+          <img src="palais-buckingham.jpg" alt="Palais de Buckingham" class="castle-img" onerror="this.alt='Photo à venir — Palais de Buckingham'">
+          <div class="castle-body">
+            <div>
+              <h3 class="castle-title">Palais de Buckingham</h3>
+              <p style="font-size:12px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:6px;">📍 Édimbourg (Lysange)</p>
+              <p style="font-size:13px; color:#64748b; margin:0;">Palais néoclassique au cœur d'Édimbourg, résidence cérémonielle en Lysange.</p>
+            </div>
+            <span class="btn-view-castle">Consulter le dossier ➔</span>
+          </div>
+        </div>
+
+        <!-- 6. WINDSOR -->
+        <div class="castle-card" onclick="openModal('modal-chateau-windsor')">
+          <img src="chateau-windsor.jpg" alt="Château de Windsor" class="castle-img" onerror="this.alt='Photo à venir — Château de Windsor'">
+          <div class="castle-body">
+            <div>
+              <h3 class="castle-title">Château de Windsor</h3>
+              <p style="font-size:12px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:6px;">📍 Windsor (Lysange)</p>
+              <p style="font-size:13px; color:#64748b; margin:0;">Forteresse historique fondée au XI<sup>e</sup> siècle, plus ancien château occupé au monde.</p>
+            </div>
+            <span class="btn-view-castle">Consulter le dossier ➔</span>
+          </div>
+        </div>
+
+        <!-- 7. PAVILLON DE LYSANGE -->
+        <div class="castle-card" onclick="openModal('modal-pavillon-lysange')">
+          <img src="pavillon-lysange.jpg" alt="Pavillon de chasse de Lysange" class="castle-img" onerror="this.alt='Photo à venir — Pavillon de chasse de Lysange'">
+          <div class="castle-body">
+            <div>
+              <h3 class="castle-title">Pavillon de Chasse de Lysange</h3>
+              <p style="font-size:12px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:6px;">📍 Entre Édimbourg et Windsor (Lysange)</p>
+              <p style="font-size:13px; color:#64748b; margin:0;">Rendez-vous de chasse et retraite hivernale au cœur des grands massifs forestiers du nord.</p>
+            </div>
+            <span class="btn-view-castle">Consulter le dossier ➔</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 6 : GAZETTE & ACTES ROYAUX -->
+  <div id="tab-gazette" class="tab-content">
+    <div class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Gazette Royale — Actes & Ordonnances Officiels</h2>
+      </div>
+      <div style="padding: 25px;">
+        <p style="font-size:14px; color:#64748b; margin-bottom:20px;">
+          Actes, ordonnances royales et décrets officiellement promulgués et enregistrés au Sceau du Cabinet Royal.
+        </p>
+        <div id="actes-container"></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ========================================== -->
+<!-- MODALES POUR AGRANDIR LES IMAGES DE LA MAISON ROYALE -->
+<!-- ========================================== -->
+
+<div id="modal-img-signature" class="modal-window">
+  <div class="modal-content" style="text-align: center; max-width: 700px;">
+    <button class="btn-close-modal" onclick="closeModal('modal-img-signature')">✕ Fermer</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">Signature Royale de S.M. James Ier</h2>
+    <img src="signature-roi.jpg" alt="Signature Royale" style="width: 100%; max-height: 450px; object-fit: contain; border: 2px solid var(--gold-primary); border-radius: 4px; background: #fff; padding: 10px;">
+  </div>
+</div>
+
+<div id="modal-img-armoiries" class="modal-window">
+  <div class="modal-content" style="text-align: center; max-width: 700px;">
+    <button class="btn-close-modal" onclick="closeModal('modal-img-armoiries')">✕ Fermer</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">Armoiries d'Héritier de S.A.R. le Prince Charles</h2>
+    <img src="armoiries-prince.jpg" alt="Armoiries du Prince" style="width: 100%; max-height: 450px; object-fit: contain; border: 2px solid var(--gold-primary); border-radius: 4px; background: #fff; padding: 10px;">
+  </div>
+</div>
+
+<div id="modal-img-sceau" class="modal-window">
+  <div class="modal-content" style="text-align: center; max-width: 700px;">
+    <button class="btn-close-modal" onclick="closeModal('modal-img-sceau')">✕ Fermer</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">Sceau du Cabinet Royal</h2>
+    <img src="logo-cabinet.jpg" alt="Sceau du Cabinet" style="width: 100%; max-height: 450px; object-fit: contain; border: 2px solid var(--gold-primary); border-radius: 4px; background: #fff; padding: 10px;">
+  </div>
+</div>
+
+
+<!-- ========================================== -->
+<!-- MODALES DÉTAILLÉES DES ORDRES DE CHEVALERIE -->
+<!-- ========================================== -->
+
+<div id="modal-esprit" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-esprit')">← Retour aux Ordres</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">📜 Ordre du Saint-Esprit</h2>
+    <p style="font-size:13px; background:var(--royal-purple); color:var(--gold-light); padding:4px 10px; display:inline-block; border-radius:4px;">1<sup>er</sup> Rang de Préséance du Royaume</p>
+    
+    <div style="margin:20px 0; line-height:1.7; color:#334155;">
+      <p>Premier ordre dans l’ordre de préséance du Royaume, l’Ordre du Saint-Esprit est la plus haute distinction chevaleresque de Novarcis. Il trouve son origine dans la tradition royale française (institué en 1578 par le roi Henri III) et fut réétabli à Novarcis sous la régence de S.A.R. Louise-Auguste en 1958.</p>
+      <p><strong>Attribution :</strong> Strictement réservé aux membres de la famille royale, aux ducs et princes de la haute noblesse ainsi qu'aux plus grands serviteurs de l'État.</p>
+      <p><strong>Structure :</strong> Ne comporte qu'un seul rang : <i>Chevalier du Saint-Esprit</i>.</p>
+      <blockquote style="font-style:italic; color:var(--gold-dark); border-left:3px solid var(--gold-primary); padding-left:12px; margin:15px 0;">
+        « Recevoir le Saint-Esprit, c’est être appelé à servir non seulement le Royaume, mais son histoire et son destin. » — Le Roi
+      </blockquote>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; text-align:center; margin-top:20px;">
+      <div><img src="médaille-saint-esprit.jpg" style="max-height:220px; object-fit:contain;"><br><small style="font-weight:bold;">Médaille / Insigne</small></div>
+      <div><img src="heraldisme-saint-esprit.jpg" style="max-height:220px; object-fit:contain;"><br><small style="font-weight:bold;">Représentation Héraldique</small></div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-michel" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-michel')">← Retour aux Ordres</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">📜 Ordre de Saint-Michel</h2>
+    <p style="font-size:13px; background:var(--royal-purple); color:var(--gold-light); padding:4px 10px; display:inline-block; border-radius:4px;">2<sup>e</sup> Rang — « Immensi tremor oceani »</p>
+    
+    <div style="margin:20px 0; line-height:1.7; color:#334155;">
+      <p>Institué à l'origine en 1469 par Louis XI, il fut établi à Novarcis en 1958 lors de l'alliance entre les Maisons de Bourbon et de Rovère.</p>
+      <p><strong>Effet social majeur :</strong> Constitue la principale voie d'anoblissement du Royaume. Tout roturier décoré accède à la noblesse et reçoit le titre de <strong>Baron</strong>.</p>
+      <blockquote style="font-style:italic; color:var(--gold-dark); border-left:3px solid var(--gold-primary); padding-left:12px; margin:15px 0;">
+        « Être fait de Saint-Michel, c’est être reconnu digne de servir plus haut que sa naissance ne l’exige. » — Le Roi
+      </blockquote>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; text-align:center; margin-top:20px;">
+      <div><img src="médaille-saint-michel.jpg" style="max-height:220px; object-fit:contain;"><br><small style="font-weight:bold;">Médaille / Insigne</small></div>
+      <div><img src="heraldisme-saint-michel.jpg" style="max-height:220px; object-fit:contain;"><br><small style="font-weight:bold;">Représentation Héraldique</small></div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-couronne" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-couronne')">← Retour aux Ordres</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">📜 Ordre de la Couronne de Novarcis</h2>
+    <p style="font-size:13px; background:var(--royal-purple); color:var(--gold-light); padding:4px 10px; display:inline-block; border-radius:4px;">3<sup>e</sup> Rang de Préséance du Royaume</p>
+    
+    <div style="margin:20px 0; line-height:1.7; color:#334155;">
+      <p>Institué au Moyen Âge par le 21<sup>e</sup> Duc de Rovère, Hugues IV, cet ordre récompense la loyauté et les mérites exceptionnels envers la nation.</p>
+      <p><strong>Effet social :</strong> Confère le titre honorifique de Chevalier (<strong>Sir</strong>) et le droit au collier héraldique.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; text-align:center; margin-top:20px;">
+      <div><img src="médaille-couronne.jpg" style="max-height:220px; object-fit:contain;"><br><small style="font-weight:bold;">Médaille d'Officier</small></div>
+      <div><img src="heraldisme-couronne.jpg" style="max-height:220px; object-fit:contain;"><br><small style="font-weight:bold;">Représentation Héraldique</small></div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-merite" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-merite')">← Retour aux Ordres</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">📜 Ordre du Mérite de Novarcis</h2>
+    <p style="font-size:13px; background:var(--royal-purple); color:var(--gold-light); padding:4px 10px; display:inline-block; border-radius:4px;">4<sup>e</sup> Rang de Préséance du Royaume</p>
+    
+    <div style="margin:20px 0; line-height:1.7; color:#334155;">
+      <p>Fondé en 1951 par le Roi Théophile II, il est la haute distinction civile récompensant la valeur administrative, le dévouement public et les actes civiques.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; text-align:center; margin-top:20px;">
+      <div><img src="médaille-merite.jpg" style="max-height:220px; object-fit:contain;"><br><small style="font-weight:bold;">Médaille d'Officier</small></div>
+      <div><img src="heraldisme-merite.jpg" style="max-height:220px; object-fit:contain;"><br><small style="font-weight:bold;">Représentation Héraldique</small></div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-leandre" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-leandre')">← Retour aux Ordres</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">📜 Ordre de Saint-Léandre</h2>
+    <p style="font-size:13px; background:var(--royal-purple); color:var(--gold-light); padding:4px 10px; display:inline-block; border-radius:4px;">5<sup>e</sup> Rang de Préséance du Royaume</p>
+    
+    <div style="margin:20px 0; line-height:1.7; color:#334155;">
+      <p>Fondé par le Roi Théodore I<sup>er</sup>, il honore les vertus morales, la dévotion, la piété et les œuvres caritatives d'envergure.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; text-align:center; margin-top:20px;">
+      <div><img src="médaille-saint-leandre.jpg" style="max-height:220px; object-fit:contain;"><br><small style="font-weight:bold;">Médaille de Chevalier</small></div>
+      <div><img src="heraldisme-saint-leandre.jpg" style="max-height:220px; object-fit:contain;"><br><small style="font-weight:bold;">Représentation Héraldique</small></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ========================================== -->
+<!-- GRANDES MODALES DÉTAILLÉES DES CHÂTEAUX   -->
+<!-- ========================================== -->
+
+<div id="modal-chateau-aldricourt" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-chateau-aldricourt')">✕ Fermer le dossier</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">Palais Royal d'Aldricourt</h2>
+    <p style="font-size:13px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:15px;">📍 Rovère — Siège du Cabinet & Résidence de Travail</p>
+    
+    <img src="chateau-aldricourt.jpg" alt="Palais d'Aldricourt" style="width:100%; max-height:480px; object-fit:cover; border-radius:6px; border:2px solid var(--gold-primary); margin-bottom:20px;">
+    
+    <div style="line-height:1.8; color:#334155; font-size:15px;">
+      <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple);">Histoire & Rôle Institutionnel</h3>
+      <p>Érigé au cœur de Rovère-sur-Lys face à la grande Esplanade d'Aldric, le Palais d'Aldricourt est la résidence de travail officielle du Souverain et le cœur battant de l'État novarcien. Bâti à l'origine en 1658 par Antoine VI, premier Roi de Novarcis, puis reconstruit en style baroque impérial sous le règne d'Antoine VII.</p>
+      
+      <p>Sublimé par sa majestueuse façade de 180 mètres en pierre blanche de Rovère, sa Grande Galerie des Ducs et son Escalier d'Apparat en marbre et or, le palais abrite sous sa coupole dorée le bureau du Roi. C'est ici que Sa Majesté le Roi James Ier signe les actes officiels, tient ses audiences diplomatiques et réunit le Conseil privé de la Couronne.</p>
+      
+      <p>Sous ses salons d'apparat dorés subsistent les caves voûtées du château d'origine du 17e siècle, classées monument historique. C'est dans ces pierres millénaires, chargées de mémoire dynastique, que chaque nouveau Souverain prononce en secret son serment de couronnement, la veille de son investiture publique.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-chateau-downton" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-chateau-downton')">✕ Fermer le dossier</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">Château de Downton</h2>
+    <p style="font-size:13px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:15px;">📍 Rovère — Palais Officiel d'État</p>
+    
+    <img src="chateau-downton.jpg" alt="Château de Downton" style="width:100%; max-height:480px; object-fit:cover; border-radius:6px; border:2px solid var(--gold-primary); margin-bottom:20px;">
+    
+    <div style="line-height:1.8; color:#334155; font-size:15px;">
+      <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple);">Histoire & Patrimoine Dynastique</h3>
+      <p>Élevé sur les hauteurs de Rovère-sur-Lys, le Château de Downton est la résidence officielle d'État du Souverain et le berceau de la monarchie. C'est en l'an 800 qu'Aldric Ier fait dresser sur ce site la toute première fortification du duché, dont plusieurs salles médiévales et le donjon d'origine subsistent encore aujourd'hui au cœur de l'édifice. C'est entre ces murs historiques qu'Antoine VI fut solennellement proclamé premier roi de Novarcis lors de l'unification du 19 octobre 1653.</p>
+      
+      <p>Sous le règne de Charles V (1670-1709), lors du premier âge d'or du Royaume, le château fort est transformé en un somptueux palais Renaissance aux façades élégantes. Entouré d'un domaine d'exception de plus de 400 hectares, le château offre un contraste remarquable entre la puissance de ses fondations médiévales et le raffinement de ses décors des XVIIe et XVIIIe siècles.</p>
+
+      <p>Downton demeure le théâtre privilégié des grands évènements de la Maison de Bourbon-Rovère-Norrington. C'est dans ses salons d'apparat que Sa Majesté le Roi James Ier accueille les chefs d'État étrangers lors des visites protocolaires et donne les sommets diplomatiques majeurs du Royaume. Il est le seul château à avoir logé tous les souverains de Rovère.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-chateau-val-rovere" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-chateau-val-rovere')">✕ Fermer le dossier</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">Château du Val-de-Rovère</h2>
+    <p style="font-size:13px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:15px;">📍 Campagne entre Rovère et Far Vegas — Merveille du XVIIᵉ siècle</p>
+    
+    <img src="chateau-val-rovere.jpg" alt="Château du Val-de-Rovère" style="width:100%; max-height:480px; object-fit:cover; border-radius:6px; border:2px solid var(--gold-primary); margin-bottom:20px;">
+    
+    <div style="line-height:1.8; color:#334155; font-size:15px;">
+      <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple);">Architecture & Splendeur Classique</h3>
+      <p>Élevé à la fin du XVII<sup>e</sup> siècle, en 1786, au milieu des vallons verdoyants s'étendant entre Rovère et Far Vegas, le Château du Val-de-Rovère est inspiré des plus belles créations de l'architecture classique française. Dominé par son dôme majestueux et flanqué de deux ailes symétriques, il offre une harmonie parfaite entre la pierre de taille et l'eau.</p>
+      
+      <p>Ses jardins à la française, dessinés avec des bassins en miroir d'eau, des broderies de buis et des perspectives monumentales, en font l'un des domaines les plus admirés d'Europe. Le château sert de lieu de sérénité pour la Famille Royale et accueille les festivals culturels et les réceptions estivales de la Couronne.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-manoir-villefort" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-manoir-villefort')">✕ Fermer le dossier</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">Manoir de Villefort</h2>
+    <p style="font-size:13px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:15px;">📍 Villefort — Villégiature Privée de la Famille Royale</p>
+    
+    <img src="manoir-villefort.jpg" alt="Manoir de Villefort" style="width:100%; max-height:480px; object-fit:cover; border-radius:6px; border:2px solid var(--gold-primary); margin-bottom:20px;">
+    
+    <div style="line-height:1.8; color:#334155; font-size:15px;">
+      <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple);">Intimité & Charme Seigneurial</h3>
+      <p>Situé sur les terres pittoresques de la seigneurie de Villefort, ce manoir édifié au XVI<sup>e</sup> siècle est le refuge intime de la Famille Royale. Loin de l'étiquette stricte des palais officiels, Villefort privilégie l'authenticité des pierres anciennes, les boiseries sculptées et les jardins anglais ombragés. Il est rénové en 1862 dans un style néogothique.</p>
+
+      <p>Le domaine comprend de vastes écuries royales et de célèbres serres horticoles. C'est à Villefort que la famille régnante passe traditionnellement ses congés de printemps et organise ses réceptions privées à l'abri des regards publics.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-palais-buckingham" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-palais-buckingham')">✕ Fermer le dossier</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">Palais de Buckingham</h2>
+    <p style="font-size:13px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:15px;">📍 Édimbourg (Province de Lysange) — Palais Cérémoniel du Nord</p>
+    
+    <img src="palais-buckingham.jpg" alt="Palais de Buckingham" style="width:100%; max-height:480px; object-fit:cover; border-radius:6px; border:2px solid var(--gold-primary); margin-bottom:20px;">
+    
+    <div style="line-height:1.8; color:#334155; font-size:15px;">
+      <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple);">Le Cœur de la Monarchie en Lysange</h3>
+      <p>Érigé à l'origine en 1703 pour le Marquis de Buckingham avant d'être acquis par la Couronne et profondément transformé dans un style néoclassique monumental au XIX<sup>e</sup> siècle, ce palais est l'ancrage cérémoniel de la royauté dans la grande ville d'Édimbourg, capitale du duché de Lysange.</p>
+
+      <p>Doté de 775 pièces, dont les célèbres salons d'État décorés de tableaux de maîtres et le balcon d'honneur donnant sur la grande esplanade royale, Buckingham accueille les cérémonies d'investiture des Ordres de Chevalerie et les grandes parades de la Garde Royale en province septentrionale.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-chateau-windsor" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-chateau-windsor')">✕ Fermer le dossier</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">Château de Windsor</h2>
+    <p style="font-size:13px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:15px;">📍 Windsor (Province de Lysange) — La Plus Ancienne Forteresse Royale</p>
+    
+    <img src="chateau-windsor.jpg" alt="Château de Windsor" style="width:100%; max-height:480px; object-fit:cover; border-radius:6px; border:2px solid var(--gold-primary); margin-bottom:20px;">
+    
+    <div style="line-height:1.8; color:#334155; font-size:15px;">
+      <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple);">Mille Ans d'Histoire & de Chevalerie</h3>
+      <p>Fondé au XI<sup>e</sup> siècle par Guillaume le Conquérant pour verrouiller les accès du territoire de Lysange, le Château de Windsor détient le titre de plus ancien et de plus grand château habité au monde. Il domine la ville de Windsor du haut de sa célèbre Tour Ronde.</p>
+
+      <p>Forteresse inexpugnable devenue résidence de grand luxe au fil des siècles, Windsor abrite également la Sainte-Chapelle royale, haut lieu spirituel où sont célébrés certains mariages d'État et des cérémonies religieuses du Royaume.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-pavillon-lysange" class="modal-window">
+  <div class="modal-content">
+    <button class="btn-close-modal" onclick="closeModal('modal-pavillon-lysange')">✕ Fermer le dossier</button>
+    <h2 style="font-family:'Cinzel',serif; color:var(--royal-purple); margin-top:0;">Pavillon de Chasse de Lysange</h2>
+    <p style="font-size:13px; color:var(--gold-dark); font-weight:700; text-transform:uppercase; margin-bottom:15px;">📍 Massifs forestiers entre Édimbourg et Windsor — Retraite de Chasse</p>
+    
+    <img src="pavillon-lysange.jpg" alt="Pavillon de chasse de Lysange" style="width:100%; max-height:480px; object-fit:cover; border-radius:6px; border:2px solid var(--gold-primary); margin-bottom:20px;">
+    
+    <div style="line-height:1.8; color:#334155; font-size:15px;">
+      <h3 style="font-family:'Cinzel',serif; color:var(--royal-purple);">Tradition Cynégétique & Retraite Automnale</h3>
+      <p>Bâti au cœur des forêts domaniales qui s'étendent entre Édimbourg et Windsor en 1703 par Charles V, le Pavillon de Chasse de Lysange est un superbe manoir en pierres de taille de style néo-classique rustique. C'est le traditionnel rendez-vous des grandes chasses royales d'automne.</p>
+
+      <p>Apprécié pour son ambiance chaleureuse, ses grandes cheminées monumentales et ses salles des trophées, le Pavillon offre un cadre privilégié pour les séjours de détente d'hiver du Souverain et de la Famille Royale.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© Royaume-Uni de Novarcis — Maison Royale de Bourbon-Rovère-Norrington</span>
+    <span>Cabinet Royal d'Aldricourt — Tous droits réservés</span>
+  </div>
+</footer>
+
+<script>
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  btn.classList.add('active');
+}
+
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = 'block';
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+}
+
+// Actes de secours si actes.json n'est pas accessible en local
+const defaultActes = [
+  {
+    date: "12 Mars 1962",
+    type: "CONSTITUTION",
+    titre: "Promulgation de la Constitution du Royaume de Novarcis",
+    description: "Loi fondamentale et perpétuelle du Royaume promulguée par S.A.R. Louise-Auguste de Bourbon-Rovère.",
+    lien: "https://discord.com"
+  },
+  {
+    date: "10 Octobre 2026",
+    type: "ORDONNANCE ROYALE",
+    titre: "Ordonnance portant organisation de la Maison du Roi",
+    description: "Fixant les prérogatives du Cabinet Royal et les services de la Couronne sous l'autorité du Secrétaire Général.",
+    lien: "https://discord.com"
+  }
+];
+
+async function loadActes() {
+  const container = document.getElementById('actes-container');
+  let actes = defaultActes;
+
+  try {
+    const response = await fetch('actes.json');
+    if (response.ok) {
+      actes = await response.json();
+    }
+  } catch (err) {
+    console.log("Lecture directe locale : utilisation des actes configurés.");
+  }
+
+  let html = '';
+  actes.forEach(a => {
+    html += `
+      <div class="acte-card">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+            <span class="acte-tag">${a.type}</span>
+            <small style="color:#64748b;">${a.date}</small>
+          </div>
+          <strong style="font-family:'Cinzel',serif; color:var(--royal-purple); font-size:15px;">${a.titre}</strong>
+          <div style="font-size:13px; color:#475569; margin-top:4px;">${a.description}</div>
+        </div>
+        <a href="${a.lien}" target="_blank" rel="noopener" class="btn-download">Consulter l'Acte ➔</a>
+      </div>
+    `;
+  });
+  container.innerHTML = html;
+}
+
+document.addEventListener('DOMContentLoaded', loadActes);
+</script>
+
+</body>
+</html>
