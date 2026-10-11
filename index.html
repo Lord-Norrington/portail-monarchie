@@ -374,6 +374,13 @@
       .brand-title { font-size: 18px; }
       .coat-of-arms { height: 75px; }
     }
+
+    /* Correction responsive pour empiler les images des ordres de chevalerie sur mobile */
+    @media (max-width: 768px) {
+      .modal-content div[style*="display:grid"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
   </style>
 </head>
 <body>
