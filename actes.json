@@ -1,9 +1,16 @@
 [
 
-
+{
+    "date": "12 Octobre 2026",
+    "type": "ORDONNANCE ROYALE",
+    "titre": "Ordonnance Royale n°09",
+    "description": "Invalidation de l'arrété illégal DUDAROV sur les symboles nationaux",
+    "lien": "https://discord.com/channels/1262789720266510418/1559645321485619310"
+  },
+ 
  {
     "date": "09 Octobre 2026",
-    "type": "CONSTITUTION",
+    "type": "ORDONNANCE ROYALE",
     "titre": "Ordonnance Royale n°08",
     "description": "Nomination d'Alaric de Mireval comme Gouverneur général des Provinces continentales Britanniques",
     "lien": "https://discord.com/channels/1262789720266510418/1558115842011701340"
